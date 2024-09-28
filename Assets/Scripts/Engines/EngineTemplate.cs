@@ -55,4 +55,7 @@ public class EngineTemplate
 	// ChessGame.GetRow(Piece pieceID, Player teamColor)				Alternative parameters. Returns the row number (int) of the piece's square.
 
 	// ChessGame.GetRelativeColumn(string column, int offset)			Returns the column letter offset by the given amount. (e.g. "a", 2 => "c")
+
+	// ChessGame.ColumnIntToString(int column)							Returns the column letter (string) of the given column number.
+	// ChessGame.ColumnStringToInt(string column)						Returns the column number (int) of the given column letter.
 }	

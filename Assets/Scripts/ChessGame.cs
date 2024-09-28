@@ -200,6 +200,16 @@ public static class ChessGame
 		return columns[col];
 	}
 
+	public static int ColumnStringToInt(string column)
+	{
+		return columns.IndexOf(column);
+	}
+
+	public static string ColumnIntToString(int column)
+	{
+		return columns[column];
+	}
+
 	public static PieceID GetPieceID(Piece piece, Player teamColor)
 	{
 		string id = piece.ToString() + "_"+ teamColor.ToString();
