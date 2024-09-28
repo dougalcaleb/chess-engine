@@ -99,8 +99,31 @@ public static class ChessGame
 
 	private static List<string> _getPossibleMoves(Piece pieceId, Player teamColor)
 	{
-
-
+		switch (pieceId)
+		{
+			case Piece.king:
+				return PossibleMoves.King(pieceId, teamColor);
+			case Piece.queen:
+				return PossibleMoves.Queen(pieceId, teamColor);
+			case Piece.bishop_left:
+			case Piece.bishop_right:
+				return PossibleMoves.Bishop(pieceId, teamColor);
+			case Piece.knight_left:
+			case Piece.knight_right:
+				return PossibleMoves.Knight(pieceId, teamColor);
+			case Piece.rook_right:
+			case Piece.rook_left:
+				return PossibleMoves.Knight(pieceId, teamColor);
+			case Piece.pawn_1:
+			case Piece.pawn_2:
+			case Piece.pawn_3:
+			case Piece.pawn_4:
+			case Piece.pawn_5:
+			case Piece.pawn_6:
+			case Piece.pawn_7:
+			case Piece.pawn_8:
+				return PossibleMoves.Pawn(pieceId, teamColor);
+		}
 		return new List<string>();
 	}
 

@@ -86,6 +86,26 @@ public static class PossibleMoves
 		return moves;
 	}
 
+	public static List<string> King(Piece pieceId, Player color)
+	{
+		List<string> moves = new();
+		string square = ChessGame.GetPieceSquare(pieceId, color);
+
+		int col = ChessGame.ColumnStringToInt(square.Split("-")[0]);
+		int row = int.Parse(square.Split("-")[1]);
+
+		Func<int, int, bool> isValid = (col, row) => col >= 1 && row >= 1 && col <= 8 && row <= 8;
+
+		Func<int, int, string> constructId = (col, row) => ChessGame.ColumnIntToString(col) + "-" + row;
+
+		if (isValid(col + 1, row + 1)) moves.Add(constructId(col + 1, row + 1));
+		if (isValid(col + 1, row - 1)) moves.Add(constructId(col + 1, row - 1));
+		if (isValid(col - 1, row + 1)) moves.Add(constructId(col - 1, row + 1));
+		if (isValid(col - 1, row - 1)) moves.Add(constructId(col - 1, row - 1));
+
+		return moves;
+	}
+
 	public static List<string> Knight(Piece pieceId, Player color)
 	{
 		List<string> moves = new();
