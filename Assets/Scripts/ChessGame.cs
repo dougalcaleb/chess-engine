@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 public static class ChessGame
 {
 	public static HashSet<PieceID> livingPieces = new HashSet<PieceID>();
-	public static PieceID[,] board = defaultBoard.Clone() as PieceID[,];
 
 	private static PieceID[,] defaultBoard = new PieceID[8, 8]
 	{
@@ -22,6 +21,8 @@ public static class ChessGame
 	};
 	private static Regex lettersRegex = new Regex("^[a-h]$");
 	private static List<string> columns = new List<string> {"a", "b", "c", "d", "e", "f", "g", "h"};
+
+	public static PieceID[,] board = defaultBoard.Clone() as PieceID[,];
 
 	static ChessGame()
 	{
@@ -266,5 +267,18 @@ public static class ChessGame
 		return (piece, player);
 	}
 
+	public static string[] GetBoardAsStrings()
+	{
+		string[] boardStrings = new string[64];
+		for (int row = 0; row < 8; row++)
+		{
+			for (int col = 0; col < 8; col++)
+			{
+				boardStrings[row * 8 + col] = board[row, col].ToString();
+			}
+		}
+
+		return boardStrings;
+	}
 
 }
